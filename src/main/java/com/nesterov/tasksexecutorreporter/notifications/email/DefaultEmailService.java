@@ -15,12 +15,13 @@ import java.io.FileNotFoundException;
 @Service
 public class DefaultEmailService implements EmailService {
 
-    public DefaultEmailService(){
-        sendSimpleEmail("alexaneste@yandex.ru","email","hello world");
+    public DefaultEmailService(JavaMailSender emailSender){
+        System.out.println(emailSender);
+        this.emailSender = emailSender;
+        sendSimpleEmail("alexaneste@yandex.ru","srochno","hello world");
     }
 
-    @Autowired
-    public JavaMailSender emailSender;
+    public JavaMailSender emailSender ;
 
     @Override
     public void sendSimpleEmail(String toAddress, String subject, String message) {
