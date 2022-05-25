@@ -1,6 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.email;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,19 +13,13 @@ import javax.mail.internet.MimeMessage;
 import java.io.FileNotFoundException;
 
 @Service
+@RequiredArgsConstructor
 public class DefaultEmailService implements EmailService {
 
-    public DefaultEmailService(JavaMailSender emailSender){
-        System.out.println(emailSender);
-        this.emailSender = emailSender;
-        sendSimpleEmail("alexaneste@yandex.ru","srochno","hello world");
-    }
-
-    public JavaMailSender emailSender ;
+    private final JavaMailSender emailSender ;
 
     @Override
     public void sendSimpleEmail(String toAddress, String subject, String message) {
-
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(toAddress);
         simpleMailMessage.setSubject(subject);
@@ -35,7 +29,6 @@ public class DefaultEmailService implements EmailService {
 
     @Override
     public void sendEmailWithAttachment(String toAddress, String subject, String message, String attachment) throws MessagingException, FileNotFoundException {
-
         MimeMessage mimeMessage = emailSender.createMimeMessage();
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
         messageHelper.setTo(toAddress);
