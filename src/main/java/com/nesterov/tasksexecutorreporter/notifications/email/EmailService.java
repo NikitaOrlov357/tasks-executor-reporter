@@ -3,20 +3,13 @@ package com.nesterov.tasksexecutorreporter.notifications.email;
 import com.nesterov.tasksexecutorreporter.notifications.Notifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import java.io.FileNotFoundException;
-
+@Qualifier("e-mail")
 @Service
 @RequiredArgsConstructor
-@Qualifier("e-mail")
 public class EmailService implements Notifier {
 
     private final JavaMailSender emailSender ;
