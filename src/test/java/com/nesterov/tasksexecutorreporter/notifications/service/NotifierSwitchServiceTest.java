@@ -20,7 +20,7 @@ class NotifierSwitchServiceTest {
 
     @Test
     public void getNotifiersForEmail() {
-        List<String> listOfNames = List.of("e-mail");
+        List<String> listOfNames = List.of("emailService");
 
         List<Notifier> notifierList = notifierSwitchService.getNotifiers(listOfNames);
 
