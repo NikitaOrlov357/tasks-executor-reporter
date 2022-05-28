@@ -7,7 +7,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-@Qualifier("e-mail")
 @Service
 @RequiredArgsConstructor
 public class EmailService implements Notifier {
