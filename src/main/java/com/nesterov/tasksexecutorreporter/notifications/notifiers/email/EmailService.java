@@ -1,8 +1,7 @@
-package com.nesterov.tasksexecutorreporter.notifications.email;
+package com.nesterov.tasksexecutorreporter.notifications.notifiers.email;
 
-import com.nesterov.tasksexecutorreporter.notifications.Notifier;
+import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -26,9 +25,9 @@ public class EmailService implements Notifier {
 //    }
 
     @Override
-    public void notify(String address, String message) {
+    public void makeNotify(int ownerId, String message) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setTo(address);
+        simpleMailMessage.setTo("1212");
         simpleMailMessage.setSubject("Worker notification");
         simpleMailMessage.setText(message);
         emailSender.send(simpleMailMessage);

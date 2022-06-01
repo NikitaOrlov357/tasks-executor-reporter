@@ -1,13 +1,11 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
-import com.nesterov.tasksexecutorreporter.notifications.Notifier;
-import com.nesterov.tasksexecutorreporter.notifications.email.EmailService;
-import com.nesterov.tasksexecutorreporter.notifications.telegram.TelegramService;
+import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
+import com.nesterov.tasksexecutorreporter.notifications.notifiers.email.EmailService;
+import com.nesterov.tasksexecutorreporter.notifications.notifiers.telegram.TelegramService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.BeanFactoryAnnotationUtils;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
