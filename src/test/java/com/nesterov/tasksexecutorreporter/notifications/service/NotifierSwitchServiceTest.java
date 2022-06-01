@@ -17,10 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class NotifierSwitchServiceTest {
     @Autowired
     private NotifierSwitchService notifierSwitchService;
+    @Autowired
+    private EmailService emailService;
 
     @Test
     public void getNotifiersForEmail() {
-        List<String> listOfNames = List.of("emailService");
+        List<String> listOfNames = List.of("e-mail");
+
+        System.out.println(emailService);
 
         List<Notifier> notifierList = notifierSwitchService.getNotifiers(listOfNames);
 
@@ -29,7 +33,7 @@ class NotifierSwitchServiceTest {
 
     @Test
     public void getNotifiersForEmailAndTelegram(){
-        List<String> listOfNames = List.of("emailService", "telegramService");
+        List<String> listOfNames = List.of("e-mail", "telegram");
 
         List<Notifier> notifierList = notifierSwitchService.getNotifiers(listOfNames);
 
