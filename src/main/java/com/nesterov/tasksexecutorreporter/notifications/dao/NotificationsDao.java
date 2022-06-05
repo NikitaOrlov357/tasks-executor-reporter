@@ -1,20 +1,26 @@
 package com.nesterov.tasksexecutorreporter.notifications.dao;
 
+import com.nesterov.tasksexecutorreporter.dto.NotifierType;
+import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
 @Repository
+@RequiredArgsConstructor
 public class NotificationsDao {
+    private final JdbcTemplate jdbcTemplate;
 
-    public List<String> getNotificationMethods(int id) {
-        if (id == 1){
-            return List.of("e-mail");
+    public List<String> getNotificationMethods(long ownerId) {
+            String sql = "SELECT notifier_type_id, type FROM owner_to_notifier_type INNER JOIN notifier_type ON notifier_type_id=notifier_type.id WHERE owner_id= ?";
+            return jdbcTemplate.query (sql, (rs, rowNum) -> {
+                new NotifierType(
+                        rs.getInt("notifier_type_id"),
+                        rs.getString("type")
+                );
+            }, new Object[]{ownerId} );
         }
-        if (id == 2){
-            return List.of("e-mail", "telegram");
-        }
-        return null;
     }
 }
