@@ -14,13 +14,14 @@ public class NotificationsDao {
     private final JdbcTemplate jdbcTemplate;
 
     public List<NotifierType> getNotificationMethods(long ownerId) {
-            String sql = "SELECT notifier_type_id, name FROM owner_to_notifier_type INNER JOIN notifier_type ON notifier_type_id=notifier_type.id WHERE owner_id=" + ownerId;
-              return jdbcTemplate.query(sql, (rs, rowNum) -> {
-                  new NotifierType(
-                         rs.getInt("notifier_type_id"),
-                         rs.getString("type")
-                  );
-               }, new Object[]{ownerId} );
-//            return jdbcTemplate.query(sql,NotifierType.class);
+        String sql = "SELECT notifier_type_id, name FROM owner_to_notifier_type INNER JOIN notifier_type ON notifier_type_id=notifier_type.id WHERE owner_id=" + ownerId;
+
+        return jdbcTemplate.query(
+                sql, (rs, rowNum) ->
+                new NotifierType(
+                        rs.getString("name"),
+                        rs.getInt("notifier_type_")
+                )
+        );
     }
 }
