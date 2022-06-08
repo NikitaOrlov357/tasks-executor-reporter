@@ -1,5 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
+import com.nesterov.tasksexecutorreporter.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.dao.NotificationsDao;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ public class NotifierService {
     private final NotifierSwitchService notifierSwitchService;
 
     public void makeNotify(int commandId) {
-        List<String> notificationMethods = notificationsDao.getNotificationMethods(commandId);
+        List<NotifierType> notificationMethods = notificationsDao.getNotificationMethods(commandId);
         List<Notifier> notifiers = notifierSwitchService.getNotifiers(notificationMethods);
         notifiers.forEach(
                 (notifier) -> notifier.makeNotify(2, "rfrferrer")

@@ -1,5 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
+import com.nesterov.tasksexecutorreporter.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.email.EmailService;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.telegram.TelegramService;
@@ -20,7 +21,8 @@ class NotifierSwitchServiceTest {
 
     @Test
     public void getNotifiersForEmail() {
-        List<String> listOfNames = List.of("e-mail");
+        NotifierType notifierType = new NotifierType("e-mail", 1);
+        List<NotifierType> listOfNames = List.of(notifierType);
 
         System.out.println(emailService);
 
@@ -31,7 +33,10 @@ class NotifierSwitchServiceTest {
 
     @Test
     public void getNotifiersForEmailAndTelegram(){
-        List<String> listOfNames = List.of("e-mail", "telegram");
+        NotifierType notifierType1 = new NotifierType("e-mail", 1);
+        NotifierType notifierType2= new NotifierType("telegram", 2);
+
+        List<NotifierType> listOfNames = List.of(notifierType1, notifierType2);
 
         List<Notifier> notifierList = notifierSwitchService.getNotifiers(listOfNames);
 

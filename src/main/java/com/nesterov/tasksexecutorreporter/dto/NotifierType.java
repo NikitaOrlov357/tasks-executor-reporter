@@ -4,6 +4,6 @@ import lombok.Value;
 
 @Value
 public class NotifierType {
-    String type;
+    String name;
     long notifierTypeID;
 }

@@ -1,5 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
+import com.nesterov.tasksexecutorreporter.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
@@ -13,12 +14,12 @@ import java.util.List;
 public class NotifierSwitchService {
     private final ApplicationContext applicationContext;
 
-    public List<Notifier> getNotifiers(List<String> notifierNames){
+    public List<Notifier> getNotifiers(List<NotifierType> notifierNames){
         List<Notifier> notifiers = new ArrayList<>();
 
         notifierNames.forEach(
-            (name) -> {
-                notifiers.add((Notifier) applicationContext.getBean(name));
+            (notifierType) -> {
+                notifiers.add((Notifier) applicationContext.getBean(notifierType.getName()));
             }
         );
 
