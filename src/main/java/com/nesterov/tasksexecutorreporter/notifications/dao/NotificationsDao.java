@@ -20,7 +20,7 @@ public class NotificationsDao {
                 sql, (rs, rowNum) ->
                 new NotifierType(
                         rs.getString("name"),
-                        rs.getInt("notifier_type_")
+                        rs.getInt("notifier_type_id")
                 )
         );
     }
