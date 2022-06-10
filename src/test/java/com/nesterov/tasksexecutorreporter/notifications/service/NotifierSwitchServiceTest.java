@@ -1,6 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
-import com.nesterov.tasksexecutorreporter.dto.NotifierType;
+import com.nesterov.tasksexecutorreporter.notifications.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.email.EmailService;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.telegram.TelegramService;

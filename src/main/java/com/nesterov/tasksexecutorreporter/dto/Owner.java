@@ -3,7 +3,7 @@ package com.nesterov.tasksexecutorreporter.dto;
 import lombok.Value;
 
 @Value
-public class NotifierType {
+public class Owner {
+    long id;
     String name;
-    long notifierTypeID;
 }

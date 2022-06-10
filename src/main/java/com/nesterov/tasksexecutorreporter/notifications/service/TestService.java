@@ -1,6 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
-import com.nesterov.tasksexecutorreporter.dto.NotifierType;
+import com.nesterov.tasksexecutorreporter.notifications.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.dao.NotificationsDao;
 import org.springframework.stereotype.Service;
 

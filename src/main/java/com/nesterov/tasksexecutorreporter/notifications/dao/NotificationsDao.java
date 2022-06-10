@@ -1,6 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.dao;
 
-import com.nesterov.tasksexecutorreporter.dto.NotifierType;
+import com.nesterov.tasksexecutorreporter.notifications.dto.NotifierType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

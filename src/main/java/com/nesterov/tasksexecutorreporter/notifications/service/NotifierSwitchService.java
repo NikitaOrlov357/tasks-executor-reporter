@@ -1,6 +1,6 @@
 package com.nesterov.tasksexecutorreporter.notifications.service;
 
-import com.nesterov.tasksexecutorreporter.dto.NotifierType;
+import com.nesterov.tasksexecutorreporter.notifications.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
