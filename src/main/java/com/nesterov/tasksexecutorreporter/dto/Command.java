@@ -6,9 +6,9 @@ import java.util.Date;
 
 @Value
 public class Command {
-    int id;
+    long id;
     String command;
-    CommandType type;
+    long typeId;
     long regularity;
     long start;
     Owner owner;
@@ -19,10 +19,10 @@ public class Command {
         return "Command{" +
                 "id=" + id +
                 ", command='" + command + '\'' +
-                ", type='" + type + '\'' +
+                ", typeId=" + typeId +
                 ", regularity=" + regularity +
-                ", start=" + start + "(" + new Date(start) + ")" +
-                ", owner='" + owner + '\'' +
+                ", start=" + start +
+                ", owner=" + owner +
                 ", time=" + time +
                 '}';
     }

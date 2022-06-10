@@ -11,7 +11,9 @@ public class CommandDao {
     private final JdbcTemplate jdbcTemplate;
 
     public Command getCommandById(long commandId){
-        String sql = "SELECT * FROM command INNER JOIN owner on owner_id = owner.id WHERE id=" + commandId;
+        String sql = "SELECT COMMAND.ID, COMMAND.COMMAND, COMMAND.TYPE_ID, COMMAND.REGULARITY, COMMAND.START, COMMAND.OWNER_ID, OWNER.NAME, COMMAND.TIME FROM COMMAND INNER JOIN OWNER ON COMMAND.OWNER_ID=OWNER.ID WHERE ID=" + commandId;
+
+        //String sql = "SELECT * FROM command INNER JOIN owner on owner_id = owner.id WHERE id=" + commandId;
         return jdbcTemplate.queryForObject(sql, new CommandMapper());
     }
 }

@@ -16,16 +16,16 @@ public class CommandMapper implements RowMapper<Command> {
     @Override
     public Command mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Command(
-                rs.getInt("id"),
-                rs.getString("command"),
-                CommandType.valueOf(rs.getString("type").toUpperCase(Locale.ROOT)),
-                rs.getLong("regularity"),
-                rs.getLong("start"),
+                rs.getInt("COMMAND.ID"),
+                rs.getString("COMMAND.COMMAND"),
+                rs.getLong("COMMAND.TYPE_ID"),
+                rs.getLong("COMMAND.REGULARITY"),
+                rs.getLong("COMMAND.START"),
                 new Owner(
-                        rs.getInt("id"),
-                        rs.getString("name")
+                        rs.getLong("COMMAND.OWNER_ID"),
+                        rs.getString("OWNER.NAME")
                 ),
-                rs.getDate("time")
+                rs.getDate("COMMAND.DATE")
         );
     }
 }
