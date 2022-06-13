@@ -1,5 +1,5 @@
 package com.nesterov.tasksexecutorreporter.notifications.notifiers;
 
 public interface Notifier {
-    void makeNotify(int ownerId, String message);
+    void makeNotify(long ownerId, String message);
 }

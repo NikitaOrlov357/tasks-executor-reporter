@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service("telegram")
 public class TelegramService implements Notifier {
     @Override
-    public void makeNotify(int ownerId, String message) {
+    public void makeNotify(long ownerId, String message) {
 
     }
 }

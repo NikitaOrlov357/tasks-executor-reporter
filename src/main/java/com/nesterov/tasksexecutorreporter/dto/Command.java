@@ -11,7 +11,7 @@ public class Command {
     long typeId;
     long regularity;
     long start;
-    Owner owner;
+    long ownerId;
     Date time;
 
     @Override
@@ -22,7 +22,7 @@ public class Command {
                 ", typeId=" + typeId +
                 ", regularity=" + regularity +
                 ", start=" + start +
-                ", owner=" + owner +
+                ", ownerId=" + ownerId +
                 ", time=" + time +
                 '}';
     }

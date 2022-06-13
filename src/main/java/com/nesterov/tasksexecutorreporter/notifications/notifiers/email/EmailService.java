@@ -1,5 +1,8 @@
 package com.nesterov.tasksexecutorreporter.notifications.notifiers.email;
 
+import com.nesterov.tasksexecutorreporter.dao.CommandDao;
+import com.nesterov.tasksexecutorreporter.dao.OwnerDao;
+import com.nesterov.tasksexecutorreporter.dto.Owner;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class EmailService implements Notifier {
 
     private final JavaMailSender emailSender ;
+    private final OwnerDao ownerDao;
 
 //    @Override
 //    public void sendEmailWithAttachment(String toAddress, String subject, String message, String attachment) throws MessagingException, FileNotFoundException {
@@ -25,9 +29,10 @@ public class EmailService implements Notifier {
 //    }
 
     @Override
-    public void makeNotify(int ownerId, String message) {
+    public void makeNotify(long ownerId, String message) {
+        Owner owner = ownerDao.getOwnerById(ownerId);
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setTo("1212");
+        simpleMailMessage.setTo(owner.getEMail());
         simpleMailMessage.setSubject("Worker notification");
         simpleMailMessage.setText(message);
         emailSender.send(simpleMailMessage);

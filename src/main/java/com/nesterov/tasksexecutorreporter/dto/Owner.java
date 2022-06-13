@@ -6,4 +6,6 @@ import lombok.Value;
 public class Owner {
     long id;
     String name;
+    String eMail;
+    String phone;
 }
