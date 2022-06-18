@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmailService implements Notifier {
 
-    private final JavaMailSender emailSender ;
+    private final JavaMailSender javaMailSender ;
     private final OwnerDao ownerDao;
 
 //    @Override
@@ -35,6 +35,6 @@ public class EmailService implements Notifier {
         simpleMailMessage.setTo(owner.getEMail());
         simpleMailMessage.setSubject("Worker notification");
         simpleMailMessage.setText(message);
-        emailSender.send(simpleMailMessage);
+        javaMailSender.send(simpleMailMessage);
     }
 }
