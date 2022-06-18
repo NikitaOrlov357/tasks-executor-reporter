@@ -4,6 +4,7 @@ import com.nesterov.tasksexecutorreporter.notifications.dto.NotifierType;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.Notifier;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.email.EmailService;
 import com.nesterov.tasksexecutorreporter.notifications.notifiers.telegram.TelegramService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,6 +33,7 @@ class NotifierSwitchServiceTest {
     }
 
     @Test
+    @Disabled
     public void getNotifiersForEmailAndTelegram(){
         NotifierType notifierType1 = new NotifierType("e-mail", 1);
         NotifierType notifierType2= new NotifierType("telegram", 2);
